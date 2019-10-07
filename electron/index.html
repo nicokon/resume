@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Music Player</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</head>
+
+<body>
+  <div class="table">
+    <div class="table-cell">
+      <div id="player">
+        <div id="main">
+          <audio id='id-audio-player' data-mode="loop0" data-index="2" src="./audios/空に星が綺麗~悲しい吉祥寺~ - 斉藤和義.mp3"></audio>
+          <div class="album">
+            <img src="http://p1.music.126.net/kqQkCyASnwo7eddZG7_2bg==/644313813916598.jpg" style="width: 300px" alt="">
+          </div>
+          <div class="info">
+            <div class="progress-bar">
+              <div class="time--current">0:00</div>
+              <div class="time--total">0:00</div>
+              <div class="fill"></div>
+            </div>
+            <div class="currently-playing">
+              <h2 class="song-name">空に星が綺麗~悲しい吉祥寺~</h2>
+              <h3 class="artist-name">斉藤和義</h3>
+            </div>
+            <div class="controls">
+              <div class="loop1"><i class="fa fa-repeat"></i></div>
+              <div class="previous"><i class="fa fa-backward"></i></div>
+              <div class="play"><i class="fa fa-play"></i></div>
+              <div class="pause"><i class="fa fa-pause"></i></div>
+              <div class="next"><i class="fa fa-forward"></i></div>
+              <div class="shuffle"><i class="fa fa-random"></i></div>
+              <div class="option"><i class="fa fa-bars"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <!--播放列表-->
+        <ul id='id-ul-song-list'></ul>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+<script>
+  window.nodeRequire = require
+  delete window.exports
+  delete window.module
+</script>
+<script src="static/lib/jquery.js"></script>
+<script>
+  console.log('jquery 版本', $.fn.jquery)
+</script>
+<script src="static/player.js"></script>
+
+</html>

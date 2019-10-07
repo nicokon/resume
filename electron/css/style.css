@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css?family=Questrial");
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+/* html {
+  min-height: 100%;
+  display: grid;
+} */
+
+body {
+  background: linear-gradient(to bottom left, #C0CFB2 10%, #8BA989 80%);
+  /* display: grid; */
+  overflow: hidden;
+}
+div.table {
+  display: table;
+  width: 100%;
+  height: 100vh;
+}
+div.table-cell {
+  display: table-cell;
+  vertical-align:middle;
+}
+#player {
+  /* background: #FFFFFF; */
+  position: relative;
+  margin: 0 auto;
+  width: 300px;
+  height: 300px;
+  /* overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px rgba(54, 79, 60, 0.4);
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out; */
+}
+/* #player:hover {
+  transform: scale(1.05);
+} */
+#player #main {
+  position: relative;
+  z-index: 2;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px #364f3c66;
+  transition: transform 0.4s ease-in-out;
+}
+#player.show #main {
+  transform: translateX(-150px);
+}
+#player.show ul {
+  transform: translateX(150px);
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease-in-out;
+}
+
+.album {
+  /* background: linear-gradient(rgba(54, 79, 60, 0.25), rgba(73, 101, 77, 0.55),url('http://p1.music.126.net/kqQkCyASnwo7eddZG7_2bg==/644313813916598.jpg?param=130y130'));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  z-index: 2; */
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  position: relative;
+
+}
+
+
+.clicked {
+  color: #49654D;
+  transform: scale(1.5);
+  transition: all .4s ease;
+}
+
+.info {
+  height: 115px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateY(35px);
+  transition: all .5s ease-in-out;
+}
+
+.up {
+  transform: translateY(0px);
+}
+
+
+.progress-bar {
+  height: 5px;
+  width: 73%;
+  margin: 6% auto;
+  background: #cdd9c2;
+  border-radius: 10px;
+  font-family: "Questrial", sans-serif;
+}
+
+.fill {
+  background-color: #8BA989;
+  width: 0%;
+  height: 0.3rem;
+  border-radius: 2px;
+}
+.time--current, .time--total {
+  color: #364F3C;
+  font-size: 10px;
+  position: absolute;
+  margin-top: -2px;
+}
+
+.time--current {
+  left: 15px;
+}
+
+.time--total {
+  right: 15px;
+}
+
+.currently-playing {
+  text-align: center;
+  margin-top: -3px;
+}
+
+.song-name, .artist-name {
+  font-family: "Questrial", sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.song-name {
+  font-size: .8em;
+  letter-spacing: 3px;
+  color: #364F3C;
+}
+
+.artist-name {
+  font-size: .6em;
+  letter-spacing: 1.5px;
+  color: #557c5f;
+  margin-top: 5px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  font-size: .8em;
+  justify-content: center;
+  color: #8BA989;
+}
+.controls .play, .controls .pause {
+  margin: 15px 25px;
+  color: #6e946c;
+}
+.controls .option {
+  right: 10px;
+  position: absolute;
+  font-size: .8em;
+}
+
+.controls .loop1 {
+  margin-right: 30px;
+  font-size: .8em;
+}
+.controls .shuffle {
+  margin-left: 30px;
+  font-size: .8em;
+}
+
+.play, .pause, .next, .previous, .option, .loop1, .shuffle {
+  transition: all .5s ease;
+}
+.play:hover, .pause:hover, .next:hover, .previous:hover, .option:hover,  .loop1:hover, .shuffle:hover {
+  color: #557c5f;
+}
+#player .info .option {
+  float: right;
+  cursor: pointer;
+  /* transition: opacity 0.2s; */
+}
+.show #main .info {
+  opacity: 1;
+  transform: translateY(0px);
+}
+ul#id-ul-song-list {
+  font-family: "Questrial", sans-serif;
+  list-style-type: none;
+  margin-left: 0;
+  width: 300px;
+  padding-left: 0;
+  position: absolute;
+  height: 250px;
+  background-color: #fff;
+  margin: 0;
+  font-size: 12px;
+  top: 25px;
+  overflow-y:auto;
+  -webkit-transition: 0s box-shadow 0.3s, -webkit-transform 0.4s ease-in-out;
+  transition: 0s box-shadow 0.3s, -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, 0s box-shadow 0.3s;
+  transition: transform 0.4s ease-in-out, 0s box-shadow 0.3s, -webkit-transform 0.4s ease-in-out;
+  border-radius: 0 5px 5px 0;
+}
+ul#id-ul-song-list a {
+  display: inline-block;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration-line: none;
+  color: #364F3C
+}
+ul#id-ul-song-list > li {
+  counter-increment: customlistcounter;
+  padding: 12px 15px;
+  /* height: 25px; */
+  position: relative;
+}
+ul#id-ul-song-list > li:after {
+  position: absolute;
+  width: 250px;
+  left: 9.5%;
+  content: '';
+  display: block;
+  bottom: 0;
+  border-bottom: 1px solid rgba(34, 34, 34, 0.1);
+}
+ul#id-ul-song-list > li:last-child:after {
+  border-color: transparent;
+}
+ul#id-ul-song-list > li:hover {
+  background-color: rgba(34, 34, 34, 0.02);
+}
+/* ul#id-ul-song-list > li.playing {
+  background-color: rgba(79, 182, 236, 0.15);
+} */
+/* ul#id-ul-song-list > li.playing:after {
+  border-color: transparent;
+}
+ul#id-ul-song-list > li.playing:hover {
+  background-color: rgba(79, 182, 236, 0.2);
+} */
+ul#id-ul-song-list > li:before {
+  content: counter(customlistcounter) " ";
+  /* float: left; */
+  text-align: right;
+  width: 1em;
+  margin-right: 1em;
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0.3;
+  vertical-align: baseline;
+  display: inline-block;
+}
+
+ul#id-ul-song-list li:first-child {
+  counter-reset: customlistcounter;
+}
